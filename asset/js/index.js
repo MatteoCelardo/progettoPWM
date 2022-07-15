@@ -1,22 +1,11 @@
-document.addEventListener("DOMContentLoaded",init());
+document.addEventListener("DOMContentLoaded", init);
+
+const token = "ae89f0d2ce4533d920af03eda0fa850b";
 
 function init() 
 {
     //init eventListener della darkmode
-    document.getElementById("darkModeToggle").addEventListener("click", function(){
-        if(document.body.classList.contains("bootstrap"))
-        {
-            document.body.className = "bootstrap-dark";
-            document.getElementById("topNavBar").className = "navbar navbar-expand-lg navbar bg-dark fixed-top";
-        }
-        else
-        {
-            document.body.className = "bootstrap";
-            document.getElementById("topNavBar").className = "navbar navbar-expand-lg navbar bg-light fixed-top";
-        }
-
-        savePref();
-    })
+    document.getElementById("darkModeToggle").addEventListener("click", toggleDarkMode);
     
     //init preferenza dark o light mode
     checkPref();
@@ -25,12 +14,12 @@ function init()
     getCurrentCityWeather();
 }
 
+// #region meteo
 
 async function getCurrentCityWeather()
 {
     navigator.geolocation.getCurrentPosition(async (position) => {
         let weather, weatherJson;
-        const token = "ae89f0d2ce4533d920af03eda0fa850b";
 
         weather = await fetch("https://api.openweathermap.org/data/2.5/weather?lat="+position.coords.latitude+"&lon="+position.coords.longitude+"&appid="+token+"&units=metric&lang=it",{method:"GET"});
         weatherJson = await weather.json();
@@ -43,14 +32,33 @@ async function getCurrentCityWeather()
 }
 
 /* vedere se tenere o meno
-async function getCity(city, lat, lon)
+async function getCityCoord(city)
 {
-    let resp = await fetch("https://api.openweathermap.org/geo/1.0/direct?q="+city+"&limit=1&appid=ae89f0d2ce4533d920af03eda0fa850b",{method:"GET"});
+    let resp = await fetch("https://api.openweathermap.org/geo/1.0/direct?q="+city+"&limit=1&appid="+token,{method:"GET"});
     resp = await resp.json();
 
     return [resp[0].lat, resp[0].lon];
 }
 */
+
+// #endregion
+
+// #region darkmode toggle
+
+function toggleDarkMode(){
+    if(document.body.classList.contains("bootstrap"))
+        {
+            document.body.className = "bootstrap-dark";
+            document.getElementById("topNavBar").className = "navbar navbar-expand-lg navbar bg-dark fixed-top";
+        }
+        else
+        {
+            document.body.className = "bootstrap";
+            document.getElementById("topNavBar").className = "navbar navbar-expand-lg navbar bg-light fixed-top";
+        }
+
+        savePref();
+}
 
 function checkPref()
 {
@@ -87,3 +95,5 @@ function savePref()
 
     localStorage.setItem("darkPref",pref);
 }
+
+// #endregion
