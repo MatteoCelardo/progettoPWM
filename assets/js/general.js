@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", init);
 const tokenWeather = "ae89f0d2ce4533d920af03eda0fa850b";
 const tokenImg = "563492ad6f91700001000001d9738e02bbc548bf973a634e989e643b"; //pexels
 
+// #region funzioni di init
 
 function init() {
     //init eventListener della darkmode
@@ -20,11 +21,13 @@ function init() {
 
 function initCarousel(){
 
-    getImg("sun","carouselImg1");
-    getImg("rain","carouselImg2");
-    getImg("snow","carouselImg3");
+    getImg("sun","carouselImg1",0);
+    getImg("rain","carouselImg2",1);
+    getImg("snow","carouselImg3",0);
 
 }
+
+// #endregion
 
 // #region condizioni meteo in tempo reale
 
@@ -35,7 +38,7 @@ async function getCurrentCityWeather() {
 
         weather = await getCityWeather(position.coords.latitude, position.coords.longitude);
 
-        getImg(weather.weather[0].description, "currentCityImg");
+        getImg(weather.weather[0].description, "currentCityImg",Math.floor(Math.random() * 15));
 
         document.getElementById("currentCityName").innerText = weather.name;
         document.getElementById("currentCityTemp").innerText = "temperatura: " + weather.main.temp + "°";
@@ -112,9 +115,9 @@ function savePref() {
 // #endregion
 
 
-async function getImg(subject, id) {
-    let resp = await fetch("https://api.pexels.com/v1/search?query="+subject, { method: "GET", headers: {Authorization: tokenImg}});
+async function getImg(subject, id, index) {
+    let resp = await fetch("https://api.pexels.com/v1/search?locale=it-IT&query="+subject, { method: "GET", headers: {Authorization: tokenImg}});
     let json = await resp.json();
 
-    document.getElementById(id).src = await json.photos[0].src.landscape;
+    document.getElementById(id).src = await json.photos[index].src.landscape;
 }
