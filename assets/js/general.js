@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", init);
 
-const token = "ae89f0d2ce4533d920af03eda0fa850b";
+const tokenWeather = "ae89f0d2ce4533d920af03eda0fa850b";
+const tokenImg = "563492ad6f91700001000001d9738e02bbc548bf973a634e989e643b"; //pexels
+
 
 function init() {
     //init eventListener della darkmode
@@ -9,8 +11,18 @@ function init() {
     //init preferenza dark o light mode
     checkPref();
 
+    initCarousel();
+
     //init meteo città corrente
     getCurrentCityWeather();
+
+}
+
+function initCarousel(){
+
+    getImg("sun","carouselImg1");
+    getImg("rain","carouselImg2");
+    getImg("snow","carouselImg3");
 
 }
 
@@ -29,12 +41,13 @@ async function getCurrentCityWeather() {
         document.getElementById("currentCityTemp").innerText = "temperatura: " + weather.main.temp + "°";
         document.getElementById("currentCityTempPerc").innerText = "temperatura percepita: " + weather.main.feels_like + "°";
         document.getElementById("currentCityHumid").innerText = "umidità: " + weather.main.humidity + "%";
+        document.getElementById("currentCityWeather").innerText = "tempo: " + weather.weather[0].description;
     });
 }
 
 
 async function getCityCoord(city) {
-    let resp = await fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + token, { method: "GET" });
+    let resp = await fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + tokenWeather, { method: "GET" });
     resp = await resp.json();
 
     return [resp[0].lat, resp[0].lon];
@@ -42,7 +55,7 @@ async function getCityCoord(city) {
 
 async function getCityWeather(lat, lon) {
 
-    let weather = await fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + token + "&units=metric&lang=it", { method: "GET" });
+    let weather = await fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + tokenWeather + "&units=metric&lang=it", { method: "GET"});
     return await weather.json();
 }
 
@@ -100,7 +113,7 @@ function savePref() {
 
 
 async function getImg(subject, id) {
-    let resp = await fetch("https://api.pexels.com/v1/search?query=" + subject, { method: "GET" });
+    let resp = await fetch("https://api.pexels.com/v1/search?query="+subject, { method: "GET", headers: {Authorization: tokenImg}});
     let json = await resp.json();
 
     document.getElementById(id).src = await json.photos[0].src.landscape;
