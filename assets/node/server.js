@@ -56,9 +56,12 @@ app.get("/previsioniNazionali", (req,res)=>{
 });
 
 app.get("/verificaCredenziali", (req, res) => {
-    res.send(req.body);
+    res.send(req.query);
 });
 
+app.post("/creaUtente", (req, res) => {
+    res.send(req.body);
+});
 // #endregion
 
 const server = app.listen(3000, ()=>{
