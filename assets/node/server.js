@@ -1,17 +1,28 @@
+// #region require
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
 require("dotenv").config();
+const MongoClient = require('mongodb').MongoClient;
+const bodyParser = require('body-parser');
+// #endregion
 
+// #region costanti 
+const DBName = process.env.DB_NAME;
+const mc = new MongoClient(process.env.DB_URL);
 const app = express();
+// #endregion
 
-// #region impostazione dei percorsi standard per reperire le risorse
+// #region impostazioni middleware
 app.use(express.static(path.join(__dirname,"../")));
 app.use("/css",express.static(path.join(__dirname,"../css")));
 app.use("/js",express.static(path.join(__dirname,"../js")));
 
 app.set("views", path.join(__dirname, "../../views"));
 app.set("view engine","ejs"); //motore ejs
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 // #endregion
 
 /*app.use(session({
