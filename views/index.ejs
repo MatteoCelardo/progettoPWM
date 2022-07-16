@@ -17,7 +17,7 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.0.0/dist/css/toggle-bootstrap-print.min.css" />
 
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/general.css">
     <script type="application/ld+json">
       {
         "@context": "indirizzo della pagina",
@@ -50,7 +50,7 @@
 
 <body class="bootstrap">
 
-    <nav id="topNavBar" class="navbar navbar-expand-lg navbar bg-light fixed-top">
+    <nav id="topNavBar" class="navbar navbar-expand-lg navbar bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Meteo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -73,8 +73,15 @@
                             <li><a class="dropdown-item" href="previsioniNazionali">Nazionali</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="login/">Login</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Autenticazione
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="login">Login</a></li>
+                            <li><a class="dropdown-item" href="registrazione">Registrazione</a></li>
+                        </ul>
                     </li>
                     <l1>
                         <input type="checkbox" class="btn-check" id="darkModeToggle" autocomplete="off">

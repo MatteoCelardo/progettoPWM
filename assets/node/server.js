@@ -47,12 +47,16 @@ app.get("/registrazione",(req,res)=>{
     res.render("login/registrazione").status(200).end();
 });
 
-app.get("/previsioniRegionali", (res,req)=>{
+app.get("/previsioniRegionali", (req,res)=>{
     res.render("previsioni/regionali").status(200).end();
 });
 
-app.get("/previsioniNazionali", (res,req)=>{
+app.get("/previsioniNazionali", (req,res)=>{
     res.render("previsioni/nazionali").status(200).end();
+});
+
+app.get("/verificaCredenziali", (req, res) => {
+    res.send(req.body);
 });
 
 // #endregion
