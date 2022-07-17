@@ -36,8 +36,8 @@
         </div>
         <form id="signForm" method="POST" action="/creaUtente">
             <div class="form-outline mb-4">
-                <input type="text" name="nickName" id="nickName" class="form-control" required/>
-                <label class="form-label" for="nickName">nickname</label>
+                <input type="text" name="userName" id="userName" class="form-control" required/>
+                <label class="form-label" for="userName">username</label>
             </div>
 
             <!-- Email input -->
@@ -59,6 +59,18 @@
             <p>Già registrato? <a href="/login">utenticati</a></p>
         </div>
     </div>
+
+    <%switch(creato){
+        case "ok":%>
+        <div class="container text-center h3">
+            <p class="text-success">utente creato correttamente! vai alla pagina di login per effettuare l'accesso</p>
+        </div>
+    <%  break;
+        case "err":%>
+        <div class="container text-center h3">
+            <p class="text-danger">username già esistente</p>
+        </div>
+    <%}%>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
     <script src="../js/sign.js"></script>

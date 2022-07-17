@@ -15,6 +15,7 @@ const DBName = process.env.DB_NAME;
 const mc = new MongoClient(process.env.DB_URL);
 const app = express();
 const expireTime = 15 * 60 * 1000;
+const collectionName = process.env.COLLECTION_NAME;
 // #endregion
 
 // #region impostazioni middleware
@@ -40,16 +41,6 @@ app.get("/", (req, res) => {
         res.render("index", { autenticato: false }).status(200).end();
 });
 
-app.get("/login", (req, res) => {
-    let auth = req.query.auth ? true : false;
-
-    res.render("login/login", { credenzialiErrate: auth }).status(200).end();
-});
-
-app.get("/registrazione", (req, res) => {
-    res.render("login/registrazione").status(200).end();
-});
-
 app.get("/previsioniRegionali", (req, res) => {
     res.render("previsioni/regionali").status(200).end();
 });
@@ -58,13 +49,27 @@ app.get("/previsioniNazionali", (req, res) => {
     res.render("previsioni/nazionali").status(200).end();
 });
 
+// #region login e registrazione
+
+app.get("/login", (req, res) => {
+    let auth = req.query.auth ? true : false;
+
+    res.render("login/login", { credenzialiErrate: auth }).status(200).end();
+});
+
+app.get("/registrazione", (req, res) => {
+    let creato = req.query.creato;
+
+    res.render("login/registrazione", { creato: creato }).status(200).end();
+});
+
 app.get("/verificaCredenziali", (req, res) => {
-    let {mail,pw} = req.query;
+    let { mail, pw } = req.query;
     mc.connect(function (err, db) {
         if (err) throw err;
         let dbo = db.db(DBName);
         let query = { email: mail };
-        dbo.collection("users").findOne(query, function (err, result) {
+        dbo.collection(collectionName).findOne(query, (err, result) => {
             if (err) throw err;
             if (result !== null && result.pw == pw)
                 res.cookie("login", result.user, {
@@ -80,8 +85,22 @@ app.get("/verificaCredenziali", (req, res) => {
 });
 
 app.post("/creaUtente", (req, res) => {
-    res.send(req.body);
+    let { userName, mail, pw } = req.body;
+
+    mc.connect(function (err, db) {
+        if (err) throw err;
+        let dbo = db.db(DBName);
+        let utente = { email: mail , user: userName, pw: pw};
+        dbo.collection(collectionName).insertOne(utente, (err, result) => {
+            if (err) throw err;
+            res.redirect("/registrazione?creato=ok");
+            db.close();
+        });
+
+    });
 });
+// #endregion
+
 // #endregion
 
 const server = app.listen(listenPort, () => {
