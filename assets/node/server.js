@@ -90,10 +90,12 @@ app.post("/creaUtente", (req, res) => {
     mc.connect(function (err, db) {
         if (err) throw err;
         let dbo = db.db(DBName);
-        let utente = { email: mail , user: userName, pw: pw};
+        let utente = { email: mail, user: userName, pw: pw };
         dbo.collection(collectionName).insertOne(utente, (err, result) => {
-            if (err) throw err;
-            res.redirect("/registrazione?creato=ok");
+            if (err)
+                res.redirect("/registrazione?creato=err");
+            else
+                res.redirect("/registrazione?creato=ok");
             db.close();
         });
 
