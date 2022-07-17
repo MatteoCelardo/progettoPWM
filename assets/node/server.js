@@ -6,6 +6,7 @@ require("dotenv").config();
 const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
 const cookie = require('cookie-parser');
+const { send } = require('process');
 // #endregion
 
 // #region costanti 
@@ -33,8 +34,8 @@ app.use(cookie());
 // #region routing
 
 app.get("/", (req, res) => {
-    if (req.cookies.nickName !== undefined)
-        res.render("index", { autenticato: true, user: req.cookies.nickName }).status(200).end();
+    if (req.cookies.login !== undefined)
+        res.render("index", { autenticato: true, user: req.cookies.login }).status(200).end();
     else
         res.render("index", { autenticato: false }).status(200).end();
 });
