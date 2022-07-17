@@ -32,7 +32,10 @@ app.use(cookie());
 // #region routing
 
 app.get("/",(req,res) => {
-    res.render("index").status(200).end();
+    if(req.cookies.nickName !== undefined)
+        res.render("index",{autenticato:true}).status(200).end();
+    else
+        res.render("index",{autenticato:false,user:req.cookies.nickName}).status(200).end();
 });
 
 app.get("/login",(req,res)=>{
