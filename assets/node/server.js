@@ -5,9 +5,11 @@ const session = require('express-session');
 require("dotenv").config();
 const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
+const cookie = require('cookie-parser');
 // #endregion
 
 // #region costanti 
+const listenPort = process.env.PORT || 3000;
 const DBName = process.env.DB_NAME;
 const mc = new MongoClient(process.env.DB_URL);
 const app = express();
@@ -23,15 +25,9 @@ app.set("view engine","ejs"); //motore ejs
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-// #endregion
 
-/*app.use(session({
-	secret: process.env.SECRET_KEY,
-    httpOnly: true,
-	resave: false,
-	saveUninitialized: false, 
-	cookie: {secure: false, maxAge: 15*60*1000}
-}));*/
+app.use(cookie());
+// #endregion
 
 // #region routing
 
@@ -57,6 +53,14 @@ app.get("/previsioniNazionali", (req,res)=>{
 
 app.get("/verificaCredenziali", (req, res) => {
     res.send(req.query);
+    mc.connect(function(err, db) {
+        if (err) throw err;
+        let dbo = db.db(DBName);
+        let query = { mail: req.query.email };
+        let result = dbo.collection("users").find(query);
+        //if(result !== undefined)
+          //  res.
+      });
 });
 
 app.post("/creaUtente", (req, res) => {
@@ -64,8 +68,21 @@ app.post("/creaUtente", (req, res) => {
 });
 // #endregion
 
-const server = app.listen(3000, ()=>{
-	let port = process.env.PORT || 3000;
+const server = app.listen(listenPort, ()=>{
+	
 
-	console.log(`Applicazione in ascolto su porta ${port}`);
+	console.log(`Applicazione in ascolto su porta ${listenPort}`);
 });
+
+/*
+per inserire cookie
+
+res.cookie(`Cookie token name`,`encrypted cookie string Value`,{
+        maxAge: 5000,
+        // expires works the same as the maxAge
+        expires: new Date('01 12 2021'),
+        secure: true,
+        httpOnly: true,
+        sameSite: 'lax'
+    });
+*/
