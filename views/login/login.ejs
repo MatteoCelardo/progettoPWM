@@ -55,6 +55,12 @@
         </div>
     </div>
 
+    <%if(credenzialiErrate){%>
+        <div class="container text-center">
+            <p class="text-danger">credenziali errate</p>
+        </div>
+    <%}%>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
     <script src="../js/sign.js"></script>
     <%- include("../partials/scriptFondoPagina")%>
