@@ -14,7 +14,7 @@ const listenPort = process.env.PORT || 3000;
 const DBName = process.env.DB_NAME;
 const mc = new MongoClient(process.env.DB_URL);
 const app = express();
-const expireTime = 15 * 60 * 1000;
+const expireTime = 30 * 60 * 1000;
 const collectionName = process.env.COLLECTION_NAME;
 // #endregion
 
@@ -36,9 +36,9 @@ app.use(cookie());
 
 app.get("/", (req, res) => {
     if (req.cookies.login !== undefined)
-        res.render("index", { autenticato: true, user: req.cookies.login }).status(200).end();
+        res.render("index", { autenticaton: true, user: req.cookies.login }).status(200).end();
     else
-        res.render("index", { autenticato: false }).status(200).end();
+        res.render("index", { autenticaton: false }).status(200).end();
 });
 
 app.get("/previsioniRegionali", (req, res) => {
@@ -101,12 +101,31 @@ app.post("/creaUtente", (req, res) => {
 
     });
 });
+
+app.get("/areaPersonale", (req,res)=>{
+
+    let userName = req.cookies.login;
+
+    mc.connect(function (err, db) {
+        if (err) throw err;
+        let dbo = db.db(DBName);
+        let query = { user: userName };
+        dbo.collection(collectionName).findOne(query, (err, result) => {
+            if (err) throw err;
+            res.render("login/areaPersonale", { email: result.email, user: result.user, pref: result.pref });
+            db.close();
+        });
+
+    });
+});
+
+app.get("/logout", (req,res)=>{
+    res.clearCookie("login").redirect("/");
+});
 // #endregion
 
 // #endregion
 
 const server = app.listen(listenPort, () => {
-
-
     console.log(`Applicazione in ascolto su porta ${listenPort}`);
 });

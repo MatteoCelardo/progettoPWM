@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+    <%- include("../partials/head")%>
+        <link rel="stylesheet" type="text/css" href="../css/sign.css">
+        <link rel="stylesheet" type="text/css" href="../css/areaPersonale.css">
+</head>
+
+<body class="bootstrap">
+
+    <nav id="topNavBar" class="navbar navbar-expand-lg navbar bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Meteo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Previsioni
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="previsioniRegionali">Regionali</a></li>
+                            <li><a class="dropdown-item" href="previsioniNazionali">Nazionali</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <%= user%>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Area Personale</a></li>
+                            <li><a class="dropdown-item" href="logout">Logout</a></li>
+                        </ul>
+                    </li>
+
+                    <l1>
+                        <input type="checkbox" class="btn-check" id="darkModeToggle" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="darkModeToggle">dark mode</label>
+                    </l1>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Inserisci una città..."
+                        aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Cerca</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container text-center">
+        <div class="row mb-2">
+            <div class="col rounded bg-secondary mr-2">
+                <p class="lead">nome utente: </p>
+            </div>
+            <div class="col rounded bg-secondary mr-2">
+                <p>
+                    <%= user%>
+                </p>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col rounded bg-secondary mr-2">
+                <p class="lead">email: </p>
+            </div>
+            <div class="col rounded bg-secondary mr-2">
+                <p>
+                    <%= email%>
+                </p>
+            </div>
+        </div>
+        <%if(pref !==undefined) {%>
+            <div class="container text-center">
+                <p class="h3 lead">città preferite:</p>
+                <%for(el of pref){%>
+                    <div class="row mb-2">
+                        <div class="col rounded bg-secondary mr-2">
+                            <p class="lead">nome città: </p>
+                        </div>
+                        <div class="col rounded bg-secondary mr-2">
+                            <p>
+                                <%= el%>
+                            </p>
+                        </div>
+                    </div>
+
+                    <%}%>
+            </div>
+            <%}%>
+    </div>
+
+    <div class="container text-center signFormContainer">
+        <div class="text-center">
+            <p id="formTitle" class="h3">Modifica i tuoi dati qui</p>
+        </div>
+        <form id="emailForm" method="PUT" action="/aggiornaCredenziali">
+            <div class="form-outline mb-4">
+                <input type="email" name="mail" id="mail" class="form-control" required />
+                <label class="form-label" for="mail">Indirizzo Email</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mb-4">Aggiorna e-mail</button>
+        </form>
+        <form id="pwForm" method="PUT" action="/aggiornaCredenziali">
+            <div class="form-outline mb-4">
+                <input type="password" name="pw" id="pw" class="form-control" required />
+                <label class="form-label" for="pw">Password</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mb-4">Aggiorna password</button>
+        </form>
+        <form id="prefForm" method="PUT" action="/aggiornaCredenziali">
+            <div class="form-outline mb-4">
+                <input type="text" name="pref" id="pref" class="form-control" required />
+                <label class="form-label" for="pref">Città da aggiungere ai preferiti</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mb-4">Aggiorna città preferite</button>
+        </form>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
+    <script src="../js/areaPersonale.js"></script>
+    <%- include("../partials/scriptFondoPagina")%>
+</body>
+
+</html>

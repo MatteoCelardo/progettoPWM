@@ -31,7 +31,7 @@
                             <li><a class="dropdown-item" href="previsioniNazionali">Nazionali</a></li>
                         </ul>
                     </li>
-                    <% if(!autenticato){%>
+                    <% if(!autenticaton){%>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,8 +49,8 @@
                                 <%= user%>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Area Personale</a></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                                <li><a class="dropdown-item" href="areaPersonale">Area Personale</a></li>
+                                <li><a class="dropdown-item" href="logout">Logout</a></li>
                             </ul>
                         </li>
                     <%}%>
