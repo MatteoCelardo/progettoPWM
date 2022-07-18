@@ -10,15 +10,15 @@ document.getElementById("emailForm").addEventListener('submit', async (e) => {
     e.preventDefault();
     let mail = document.getElementById("mail").value;
     let bodyReq = JSON.stringify({ mail: mail });
-    
-    inviaNuoviDati(bodyReq, "responseEmail", "containerEmail", "email aggiornata correttamente!", "errore. Email non aggiornata","pEmail",mail);
+
+    inviaNuoviDati(bodyReq, "responseEmail", "containerEmail", "email aggiornata correttamente!", "errore. Email non aggiornata", "pEmail", mail);
 });
 
 document.getElementById("pwForm").addEventListener('submit', async (e) => {
     e.preventDefault();
     let pw = CryptoJS.SHA256(document.getElementById("pw").value).toString();
     let bodyReq = JSON.stringify({ pw: pw });
-    
+
     inviaNuoviDati(bodyReq, "responsePw", "containerPw", "password aggiornata correttamente!", "errore. Password non aggiornata");
 });
 
@@ -89,8 +89,26 @@ if (document.getElementsByClassName("rimuovi").length != 0) {
     let bottoni = document.getElementsByClassName("rimuovi")
     Array.prototype.forEach.call(bottoni, element => {
         element.addEventListener("click", async (e) => {
-            //await fetch("");
-            //TODO vedere cosa contenga l'oggetto e o se usare l'elemento element per capire cosa mandare al server
+            let i = 3;
+            let div;
+            let p;
+
+            let resp = await fetch("/rimuoviCit", {
+                method: "PUT",
+                headers: { "Content-Type": "application/json", Accept: "application/json" },
+                body: JSON.stringify({ pref: element.previousElementSibling.innerText }),
+            });
+
+            resp = await resp.json();
+            if (resp.result == "ok") {
+                while (document.getElementById("divPref").childNodes[i].childNodes[1].childNodes[1].innerText != element.previousElementSibling.innerText) {
+                    i += 2;
+                }
+                document.getElementById("divPref").removeChild(document.getElementById("divPref").childNodes[i]);
+                document.getElementById("divPref").removeChild(document.getElementById("divPref").childNodes[i]);
+            } else {
+                alert("si è verificato un errore. impossibile rimuovere la città dai preferiti");
+            }
         });
     });
 }

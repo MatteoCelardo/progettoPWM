@@ -47,19 +47,19 @@ app.get("/", (req, res) => {
                 res.render("index", { autentication: true, user: result.user, pref: result.pref });
                 db.close();
             });
-    
+
         });
     }
     else
-        res.render("index", { autentication: false, pref: undefined }).status(200).end();
+        res.render("index", { autentication: false, pref: undefined });
 });
 
 app.get("/previsioniRegionali", (req, res) => {
-    res.render("previsioni/regionali").status(200).end();
+    res.render("previsioni/regionali");
 });
 
 app.get("/previsioniNazionali", (req, res) => {
-    res.render("previsioni/nazionali").status(200).end();
+    res.render("previsioni/nazionali");
 });
 
 // #region login e registrazione
@@ -67,12 +67,12 @@ app.get("/previsioniNazionali", (req, res) => {
 app.get("/login", (req, res) => {
     let auth = req.query.auth ? true : false;
 
-    res.render("login/login", { credenzialiErrate: auth }).status(200).end();
+    res.render("login/login", { credenzialiErrate: auth });
 });
 
 app.get("/registrazione", (req, res) => {
 
-    res.render("login/registrazione").status(200).end();
+    res.render("login/registrazione");
 });
 
 app.get("/verificaCredenziali", (req, res) => {
@@ -192,7 +192,30 @@ app.post("/aggiungiCit", (req, res) => {
         if (err) throw err;
         let dbo = db.db(DBName);
         let query = { user: utente };
-        let aggiorna = { $push: {pref: req.body.pref} };
+        let aggiorna = { $push: { pref: req.body.pref } };
+        dbo.collection(collectionName).updateOne(query, aggiorna, (err, result) => {
+            if (err)
+                res.json({ result: "err" });
+            else
+                res.json({ result: "ok" });
+            db.close();
+        });
+
+    });
+});
+
+app.put("/rimuoviCit", (req, res) => {
+    let utente = req.cookies.login;
+
+    if (utente === undefined)
+        res.redirect("/");
+
+
+    mc.connect(function (err, db) {
+        if (err) throw err;
+        let dbo = db.db(DBName);
+        let query = { user: utente };
+        let aggiorna = { $pull: { pref: req.body.pref } };
         dbo.collection(collectionName).updateOne(query, aggiorna, (err, result) => {
             if (err)
                 res.json({ result: "err" });
