@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -40,7 +40,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#">Area Personale</a></li>
-                            <li><a class="dropdown-item" href="logout">Logout</a></li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
                         </ul>
                     </li>
 
@@ -91,6 +91,7 @@
                             <p>
                                 <%= el%>
                             </p>
+                            <button class="rimuovi" type="text" class="btn btn-primary btn-block mb-4">Rimuovi</button>
                         </div>
                     </div>
 
@@ -103,21 +104,21 @@
         <div class="text-center">
             <p id="formTitle" class="h3">Modifica i tuoi dati qui</p>
         </div>
-        <form id="emailForm" method="PUT" action="/aggiornaCredenziali">
+        <form id="emailForm" method="POST" action="/aggiornaDati">
             <div class="form-outline mb-4">
                 <input type="email" name="mail" id="mail" class="form-control" required />
                 <label class="form-label" for="mail">Indirizzo Email</label>
             </div>
             <button type="submit" class="btn btn-primary btn-block mb-4">Aggiorna e-mail</button>
         </form>
-        <form id="pwForm" method="PUT" action="/aggiornaCredenziali">
+        <form id="pwForm" method="POST" action="/aggiornaDati">
             <div class="form-outline mb-4">
                 <input type="password" name="pw" id="pw" class="form-control" required />
                 <label class="form-label" for="pw">Password</label>
             </div>
             <button type="submit" class="btn btn-primary btn-block mb-4">Aggiorna password</button>
         </form>
-        <form id="prefForm" method="PUT" action="/aggiornaCredenziali">
+        <form id="prefForm" method="POST" action="/aggiornaDati">
             <div class="form-outline mb-4">
                 <input type="text" name="pref" id="pref" class="form-control" required />
                 <label class="form-label" for="pref">Città da aggiungere ai preferiti</label>
