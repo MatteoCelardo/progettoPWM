@@ -3,7 +3,7 @@
 
 <head>
     <%- include("partials/head")%>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 
 <body class="bootstrap">
@@ -31,33 +31,33 @@
                             <li><a class="dropdown-item" href="previsioniNazionali">Nazionali</a></li>
                         </ul>
                     </li>
-                    <% if(!autenticaton){%>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Autenticazione
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/login">Login</a></li>
-                            <li><a class="dropdown-item" href="/registrazione">Registrazione</a></li>
-                        </ul>
-                    </li>
-                    <%} else{%>
+                    <% if(!autentication){%>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                <%= user%>
+                                Autenticazione
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/areaPersonale">Area Personale</a></li>
-                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                                <li><a class="dropdown-item" href="/login">Login</a></li>
+                                <li><a class="dropdown-item" href="/registrazione">Registrazione</a></li>
                             </ul>
                         </li>
-                    <%}%>
-                    <l1>
-                        <input type="checkbox" class="btn-check" id="darkModeToggle" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="darkModeToggle">dark mode</label>
-                    </l1>
+                        <%} else{%>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <%= user%>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="/areaPersonale">Area Personale</a></li>
+                                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                                </ul>
+                            </li>
+                            <%}%>
+                                <l1>
+                                    <input type="checkbox" class="btn-check" id="darkModeToggle" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="darkModeToggle">dark mode</label>
+                                </l1>
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Inserisci una città..."
@@ -94,7 +94,8 @@
 
         <div class="row featurette align-items-center">
             <div class="col-md-7 d-flex justify-content-around">
-                <h2 class="featurette-heading">Città corrente: <span id="currentCityName" class="text-muted"></span></h2>
+                <h2 class="featurette-heading">Città corrente: <span id="currentCityName" class="text-muted"></span>
+                </h2>
                 <ul class="cityWeather">
                     <li id="currentCityTemp" class="lead"></li>
                     <li id="currentCityTempPerc" class="lead"></li>
@@ -111,56 +112,38 @@
     </div>
 
     <div class="album py-4">
-        <div class="container">
-            <div class="row row-cols-md-3 row-cols-sm-2">
-
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img id="backgroundCity1" class="d-block w-100">
-                        <div class="card-body bg-dark">
-                            <h4 id="backgroundCity1Name" class="card-title text-light"></h4>
-                            <ul class="card-text text-light cityWeather">
-                                <li id="backgroundCity1Temp" class="lead"></li>
-                                <li id="backgroundCity1TempPerc" class="lead"></li>
-                                <li id="backgroundCity1Humid" class="lead"></li>
-                                <li id="backgroundCity1Weather" class="lead"></li>
-                            </ul>
+        <% if(pref !== undefined) {%>
+            <div class="container">
+                <%for(let i = 0; i <= (pref.length/3); i++){ /*ripeto per il numero di righe da 3 elementi necessarie*/%>
+                <div class="row row-cols-md-3 row-cols-sm-2">
+                    <%  let k = 0 + (3*i);
+                        while( k < 3 + (3*i) && k < (pref.length)){ /*inserisco 3 elementi per riga */%>
+                    <div class="col">
+                        <div class="card shadow-sm fotoPref">
+                            <img id="backgroundCity<%= k%>" class="d-block w-100">
+                            <div class="card-body bg-dark">
+                                <h4 class="card-title text-light"> <%= pref[k]%></h4>
+                                <ul class="card-text text-light cityWeather">
+                                    <li id="backgroundCity<%= k%>Temp" class="lead"></li>
+                                    <li id="backgroundCity<%= k%>TempPerc" class="lead"></li>
+                                    <li id="backgroundCity<%= k%>Humid" class="lead"></li>
+                                    <li id="backgroundCity<%= k%>Weather" class="lead"></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <%k++;}%>
 
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img id="backgroundCity2" class="d-block w-100">
-                        <div class="card-body bg-dark">
-                            <h4 id="backgroundCity2Name" class="card-title text-light"></h4>
-                            <ul class="card-text text-light cityWeather">
-                                <li id="backgroundCity2Temp" class="lead"></li>
-                                <li id="backgroundCity2TempPerc" class="lead"></li>
-                                <li id="backgroundCity2Humid" class="lead"></li>
-                                <li id="backgroundCity2Weather" class="lead"></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
-
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img id="backgroundCity3" class="d-block w-100">
-                        <div class="card-body bg-dark">
-                            <h4 id="backgroundCity3Name" class="card-title text-light"></h4>
-                            <ul class="card-text text-light cityWeather">
-                                <li id="backgroundCity3Temp" class="lead"></li>
-                                <li id="backgroundCity3TempPerc" class="lead"></li>
-                                <li id="backgroundCity3Humid" class="lead"></li>
-                                <li id="backgroundCity3Weather" class="lead"></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
+                <%}%>
             </div>
-        </div>
+            <%}else{%>
+                <div class="container card shadow-sm">
+                    <div class="card-body bg-dark">
+                        <p id="backgroundCity1Name" class="card-title text-light h4">Accedi e inserisci delle città tra i preferiti nell'area personale per mostrare dati in tempo reale qui!</p>
+                    </div>
+                </div>
+                <%}%>
     </div>
 
     <script src="js/general.js"></script>

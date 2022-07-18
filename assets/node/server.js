@@ -38,21 +38,20 @@ app.use(cookie());
 
 app.get("/", (req, res) => {
     if (req.cookies.login !== undefined) {
-        /*mc.connect(function (err, db) {
+        mc.connect(function (err, db) {
             if (err) throw err;
             let dbo = db.db(DBName);
             let query = { user: req.cookies.login };
             dbo.collection(collectionName).findOne(query, (err, result) => {
                 if (err) throw err;
-                res.render("index", { autenticaton: true, user: req.cookies.login, pref: result.pref }).status(200).end();
+                res.render("index", { autentication: true, user: result.user, pref: result.pref });
                 db.close();
             });
     
-        });*/
-        res.render("index", { autenticaton: true, user: req.cookies.login }).status(200).end();
+        });
     }
     else
-        res.render("index", { autenticaton: false }).status(200).end();
+        res.render("index", { autentication: false, pref: undefined }).status(200).end();
 });
 
 app.get("/previsioniRegionali", (req, res) => {
