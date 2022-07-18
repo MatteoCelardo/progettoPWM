@@ -5,6 +5,9 @@ require("dotenv").config();
 const MongoClient = require('mongodb').MongoClient;
 const cookie = require('cookie-parser');
 const { send } = require('process');
+const axios = require("axios");
+const { config } = require('dotenv');
+const fs = require("fs");
 // #endregion
 
 // #region costanti 
@@ -14,6 +17,8 @@ const mc = new MongoClient(process.env.DB_URL);
 const app = express();
 const expireTime = 30 * 60 * 1000;
 const collectionName = process.env.COLLECTION_NAME;
+let comuni = [];
+let regioni = [];
 // #endregion
 
 // #region impostazioni middleware
@@ -184,24 +189,28 @@ app.post("/aggiornaDati", (req, res) => {
 
 app.post("/aggiungiCit", (req, res) => {
     let utente = req.cookies.login;
+    let comune = req.body.pref.toLowerCase();
 
     if (utente === undefined)
         res.redirect("/");
 
-    mc.connect(function (err, db) {
-        if (err) throw err;
-        let dbo = db.db(DBName);
-        let query = { user: utente };
-        let aggiorna = { $push: { pref: req.body.pref } };
-        dbo.collection(collectionName).updateOne(query, aggiorna, (err, result) => {
-            if (err)
-                res.json({ result: "err" });
-            else
-                res.json({ result: "ok" });
-            db.close();
-        });
+    if (comuni.includes(comune) != false)
+        mc.connect(function (err, db) {
+            if (err) throw err;
+            let dbo = db.db(DBName);
+            let query = { user: utente };
+            let aggiorna = { $push: { pref: req.body.pref } };
+            dbo.collection(collectionName).updateOne(query, aggiorna, (err, result) => {
+                if (err)
+                    res.json({ result: "err" });
+                else
+                    res.json({ result: "ok" });
+                db.close();
+            });
 
-    });
+        });
+    else
+        res.json({ result: "err" });
 });
 
 app.put("/rimuoviCit", (req, res) => {
@@ -236,4 +245,43 @@ app.get("/logout", (req, res) => {
 
 const server = app.listen(listenPort, () => {
     console.log(`Applicazione in ascolto su porta ${listenPort}`);
+
+    let readableStream = fs.createReadStream("comuni.txt");
+
+    readableStream.on('error', async (error) => {
+        let file;
+        readableStream.close();
+        regioni = await axios("https://comuni-ita.herokuapp.com/api/regioni");
+        regioni = await regioni.data;
+
+        regioni = regioni.map(element => {
+            return element.toLowerCase();
+        });
+
+        for (let i = 0; i < regioni.length; i++) {
+            let resp = await axios("https://comuni-ita.herokuapp.com/api/comuni/" + regioni[i] + "?onlyname=true");
+            comuni = await comuni.concat(await resp.data);
+        }
+
+        comuni = await comuni.map(element => {
+            return element.toLowerCase();
+        });
+
+        file = fs.createWriteStream('comuni.txt');
+        file.on('error', function (err) {
+            console.log(err);
+        });
+        await comuni.forEach((el) => {
+            file.write(el + ',\n');
+        });
+        file.end();
+    });
+
+    readableStream.on('data', (chunk) => {
+        chunk.toString().split('\n').forEach(comune => {
+            comuni.push(comune.split(',')[0]);
+        });
+    });
+
+    
 });
