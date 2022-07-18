@@ -28,8 +28,8 @@
                             Previsioni
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="previsioniRegionali">Regionali</a></li>
-                            <li><a class="dropdown-item" href="previsioniNazionali">Nazionali</a></li>
+                            <li><a class="dropdown-item" href="/previsioniRegionali">Regionali</a></li>
+                            <li><a class="dropdown-item" href="/previsioniNazionali">Nazionali</a></li>
                         </ul>
                     </li>
 
@@ -64,7 +64,7 @@
                 <p class="lead">nome utente: </p>
             </div>
             <div class="col rounded bg-secondary mr-2">
-                <p>
+                <p id="pUser" >
                     <%= user%>
                 </p>
             </div>
@@ -74,27 +74,23 @@
                 <p class="lead">email: </p>
             </div>
             <div class="col rounded bg-secondary mr-2">
-                <p>
+                <p id="pEmail">
                     <%= email%>
                 </p>
             </div>
         </div>
         <%if(pref !==undefined) {%>
-            <div class="container text-center">
-                <p class="h3 lead">città preferite:</p>
-                <%for(el of pref){%>
+            <div id="divPref" class="container text-center">
+                <p class="h3">città preferite:</p>
+                <%for(let el in pref){%>
                     <div class="row mb-2">
                         <div class="col rounded bg-secondary mr-2">
-                            <p class="lead">nome città: </p>
-                        </div>
-                        <div class="col rounded bg-secondary mr-2">
-                            <p>
-                                <%= el%>
+                            <p class="h4">
+                                <%= pref[el]%>
                             </p>
-                            <button class="rimuovi" type="text" class="btn btn-primary btn-block mb-4">Rimuovi</button>
+                            <button type="text" class="rimuovi btn btn-primary btn-block mb-4">Rimuovi</button>
                         </div>
                     </div>
-
                     <%}%>
             </div>
             <%}%>
@@ -104,27 +100,42 @@
         <div class="text-center">
             <p id="formTitle" class="h3">Modifica i tuoi dati qui</p>
         </div>
-        <form id="emailForm" method="POST" action="/aggiornaDati">
-            <div class="form-outline mb-4">
-                <input type="email" name="mail" id="mail" class="form-control" required />
-                <label class="form-label" for="mail">Indirizzo Email</label>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block mb-4">Aggiorna e-mail</button>
-        </form>
-        <form id="pwForm" method="POST" action="/aggiornaDati">
-            <div class="form-outline mb-4">
-                <input type="password" name="pw" id="pw" class="form-control" required />
-                <label class="form-label" for="pw">Password</label>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block mb-4">Aggiorna password</button>
-        </form>
-        <form id="prefForm" method="POST" action="/aggiornaDati">
-            <div class="form-outline mb-4">
-                <input type="text" name="pref" id="pref" class="form-control" required />
-                <label class="form-label" for="pref">Città da aggiungere ai preferiti</label>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block mb-4">Aggiorna città preferite</button>
-        </form>
+        <div id="containerUser" class="container">
+            <form id="userForm">
+                <div class="form-outline mb-4">
+                    <input type="text" name="user" id="user" class="form-control" required />
+                    <label class="form-label" for="user">username</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mb-4">Aggiorna username</button>
+            </form>
+        </div>
+        <div id="containerEmail" class="container">
+            <form id="emailForm">
+                <div class="form-outline mb-4">
+                    <input type="email" name="mail" id="mail" class="form-control" required />
+                    <label class="form-label" for="mail">Indirizzo Email</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mb-4">Aggiorna e-mail</button>
+            </form>
+        </div>
+        <div id="containerPw" class="container">
+            <form id="pwForm">
+                <div class="form-outline mb-4">
+                    <input type="password" name="pw" id="pw" class="form-control" required />
+                    <label class="form-label" for="pw">Password</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mb-4">Aggiorna password</button>
+            </form>
+        </div>
+        <div id="containerPref" class="container">
+            <form id="prefForm">
+                <div class="form-outline mb-4">
+                    <input type="text" name="pref" id="pref" class="form-control" required />
+                    <label class="form-label" for="pref">Città da aggiungere ai preferiti</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mb-4">Aggiorna città preferite</button>
+            </form>
+        </div>
     </div>
 
 
