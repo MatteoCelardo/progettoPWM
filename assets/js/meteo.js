@@ -16,6 +16,7 @@ async function getCityWeather(lat, lon) {
 }
 
 async function getImg(subject, id, index) {
+
     let resp = await fetch("https://api.pexels.com/v1/search?locale=it-IT&query=" + subject, { method: "GET", headers: { Authorization: tokenImg } });
     let json = await resp.json();
 
