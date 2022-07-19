@@ -81,16 +81,20 @@ app.get("/verificaCredenziali", (req, res) => {
             if (err) throw err;
             let dbo = db.db(DBName);
             let query = { email: mail };
+            console.log(query);
             dbo.collection(collectionName).findOne(query, (err, result) => {
-                if (err) throw err;
-                if (result !== null && result.pw == pw)
-                    res.cookie("login", result.user, {
-                        maxAge: expireTime,
-                        httpOnly: true
-                    }).redirect("/");
-                else
+                if (err)
                     res.redirect("/login?auth=fail");
-                db.close();
+                else {
+                    if (result !== null && result.pw == pw)
+                        res.cookie("login", result.user, {
+                            maxAge: expireTime,
+                            httpOnly: true
+                        }).redirect("/");
+                    else
+                        res.redirect("/login?auth=fail");
+                    db.close();
+                }
             });
 
         });
@@ -268,7 +272,7 @@ app.get("/previsioniRegionali/regione", async (req, res) => {
     let province = await axios("https://comuni-ita.herokuapp.com/api/province/" + scelta + "?onlyname=true");
     province = await province.data;
 
-    res.json({prov: province});
+    res.json({ prov: province });
 });
 
 // #endregion

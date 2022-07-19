@@ -65,7 +65,7 @@ function init() {
 
                     imgProv = document.createElement("img");
                     imgProv.classList.add("d-block", "w-100");
-                    imgProv.id = b.innerText;
+                    imgProv.id = resp[prov];
 
                     meteoProv = document.createElement("div");
                     meteoProv.classList.add("card-body", "bg-dark");
@@ -121,7 +121,9 @@ function init() {
                 document.getElementById("containerRegione").remove();
             document.getElementById("albumPrevisioni").appendChild(container);
 
-            //getImg(weather.weather[0].description, "citCercataImg", Math.floor(Math.random() * 15));
+            for(let el in resp ){
+                getImg(weather.weather[0].description, ""+resp[el], Math.floor(Math.random() * 15));
+            }
 
         });
     });
