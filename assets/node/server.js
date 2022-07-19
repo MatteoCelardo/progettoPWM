@@ -239,6 +239,38 @@ app.put("/rimuoviCit", (req, res) => {
 app.get("/logout", (req, res) => {
     res.clearCookie("login").redirect("/");
 });
+
+/*app.get("/ricercaIncrCit", (req, res) => {
+    let str = "^"+req.query.search;
+    let regex = new RegExp(str);
+    let result = comuni.filter(el => regex.test(el));
+
+    result = {...result};
+    console.log(result);
+
+    res.json(result);
+    
+
+});*/
+
+app.get("/citCercata", (req, res) => {
+    let comune = req.query.search;
+    if (comuni.includes(comune) != false)
+        res.json({ result: "ok" });
+    else
+        res.json({ result: "err" });
+});
+
+app.get("/meteoCitCercata", (req, res) => {
+    let user = req.cookies.login;
+
+    if (user !== undefined)
+        res.render("previsioni/citCercata", { auth: true, search: req.query.search ,user: user });
+    else
+        res.render("previsioni/citCercata", { auth: false, search: req.query.search });
+
+});
+
 // #endregion
 
 // #endregion
@@ -283,5 +315,5 @@ const server = app.listen(listenPort, () => {
         });
     });
 
-    
+
 });

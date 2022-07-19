@@ -2,7 +2,8 @@
 <html lang="it">
 
 <head>
-    <%- include("partials/head")%>
+    <%- include("../partials/head")%>
+        <link rel="stylesheet" type="text/css" href="../css/sign.css">
 </head>
 
 <body class="bootstrap">
@@ -18,7 +19,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -30,7 +31,7 @@
                             <li><a class="dropdown-item" href="/previsioniNazionali">Nazionali</a></li>
                         </ul>
                     </li>
-                    <% if(!autentication){%>
+                    <% if(!auth){%>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -74,90 +75,30 @@
         </div>
     </nav>
 
-    <div id="mainCarousel" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img id="carouselImg1" src="" class="d-block w-100" alt="panorama soleggiato">
-            </div>
-            <div class="carousel-item">
-                <img id="carouselImg2" src="" class="d-block w-100" alt="panorama innevato">
-            </div>
-            <div class="carousel-item">
-                <img id="carouselImg3" src="" class="d-block w-100" alt="pioggia">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-
-    <div class="container">
+    <div class="container mt-4">
 
         <div class="row featurette align-items-center">
             <div class="col-md-7 d-flex justify-content-around">
-                <h2 class="featurette-heading">Città corrente: <span id="currentCityName" class="text-muted"></span>
+                <h2 class="featurette-heading">Città cercata: <span id="citCercata" class="text-muted"> <%= search%></span>
                 </h2>
                 <ul class="list-unstyled">
-                    <li id="currentCityTemp" class="lead"></li>
-                    <li id="currentCityTempPerc" class="lead"></li>
-                    <li id="currentCityHumid" class="lead"></li>
-                    <li id="currentCityWeather" class="lead"></li>
+                    <li id="citCercataTemp" class="lead"></li>
+                    <li id="citCercataTempPerc" class="lead"></li>
+                    <li id="citCercataHumid" class="lead"></li>
+                    <li id="citCercataWeather" class="lead"></li>
                 </ul>
             </div>
 
             <div class="col-md-5">
-                <img id="currentCityImg" class="d-block w-100" alt="immagine città corrente">
+                <img id="citCercataImg" class="d-block w-100" alt="immagine <%= search%>">
             </div>
         </div>
         <hr class="featurette-divider">
-    </div>
-
-    <div class="album py-4">
-        <% if(pref !==undefined) {%>
-            <div class="container">
-                <%for(let i=0; i <=(pref.length/3); i++){ /*ripeto per il numero di righe da 3 elementi necessarie*/%>
-                    <div class="row row-cols-md-3 row-cols-sm-2">
-                        <% let k=0 + (3*i); while( k < 3 + (3*i) && k < (pref.length)){ /*inserisco 3 elementi per riga
-                            */%>
-                            <div class="col">
-                                <div class="card shadow-sm fotoPref mb-4">
-                                    <img id="backgroundCity<%= k%>" class="d-block w-100">
-                                    <div class="card-body bg-dark">
-                                        <h4 class="card-title text-light">
-                                            <%= pref[k]%>
-                                        </h4>
-                                        <ul class="card-text text-light list-unstyled">
-                                            <li id="backgroundCity<%= k%>Temp" class="lead"></li>
-                                            <li id="backgroundCity<%= k%>TempPerc" class="lead"></li>
-                                            <li id="backgroundCity<%= k%>Humid" class="lead"></li>
-                                            <li id="backgroundCity<%= k%>Weather" class="lead"></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <%k++;}%>
-
-                    </div>
-                    <%}%>
-            </div>
-            <%}else{%>
-                <div class="container card shadow-sm">
-                    <div class="card-body bg-dark">
-                        <p id="backgroundCity1Name" class="card-title text-light h4">Accedi e inserisci delle città tra
-                            i preferiti nell'area personale per mostrare dati in tempo reale qui!</p>
-                    </div>
-                </div>
-                <%}%>
-    </div>
+    </div> 
 
     <script src="js/meteo.js"></script>
-    <script src="js/index.js"></script>
-    <%- include("partials/scriptFondoPagina")%>
+    <script src="js/citCercata.js"></script>
+    <%- include("../partials/scriptFondoPagina")%>
 </body>
 
 </html>

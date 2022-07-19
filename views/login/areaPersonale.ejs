@@ -3,8 +3,6 @@
 
 <head>
     <%- include("../partials/head")%>
-        <link rel="stylesheet" type="text/css" href="../css/sign.css">
-        <link rel="stylesheet" type="text/css" href="../css/areaPersonale.css">
 </head>
 
 <body class="bootstrap">
@@ -49,16 +47,21 @@
                         <label class="btn btn-outline-primary" for="darkModeToggle">dark mode</label>
                     </l1>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Inserisci una città..."
-                        aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Cerca</button>
-                </form>
+                <div id="ricerca" class="d-flex">
+                    <div id="ricercaDropdown" class="rounded shadow-5">
+                    </div>
+                    <form id="formRicerca" class="d-none d-md-flex input-group w-auto my-auto">
+                        <input id="inputRicerca" class="form-control me-2" type="search"
+                            placeholder="Inserisci una città..." aria-label="Search" autocomplete="off">
+                        <button class="btn btn-outline-success" type="submit">Cerca</button>
+                    </form>
+
+                </div>
             </div>
         </div>
     </nav>
 
-    <div class="container text-center">
+    <div class="container text-center mt-4">
         <div class="row mb-2">
             <div class="col rounded bg-secondary mr-2">
                 <p class="lead">nome utente: </p>
@@ -96,9 +99,9 @@
             <%}%>
     </div>
 
-    <div class="container text-center signFormContainer">
+    <div class="container text-center mt-5">
         <div class="text-center">
-            <p id="formTitle" class="h3">Modifica i tuoi dati qui</p>
+            <p class="h3 mb-3">Modifica i tuoi dati qui</p>
         </div>
         <div id="containerUser" class="container">
             <form id="userForm">
