@@ -59,13 +59,6 @@ app.get("/", (req, res) => {
         res.render("index", { autentication: false, pref: undefined });
 });
 
-app.get("/previsioniRegionali", (req, res) => {
-    res.render("previsioni/regionali");
-});
-
-app.get("/previsioniNazionali", (req, res) => {
-    res.render("previsioni/nazionali");
-});
 
 // #region login e registrazione
 
@@ -240,18 +233,8 @@ app.get("/logout", (req, res) => {
     res.clearCookie("login").redirect("/");
 });
 
-/*app.get("/ricercaIncrCit", (req, res) => {
-    let str = "^"+req.query.search;
-    let regex = new RegExp(str);
-    let result = comuni.filter(el => regex.test(el));
 
-    result = {...result};
-    console.log(result);
-
-    res.json(result);
-    
-
-});*/
+// #endregion
 
 app.get("/citCercata", (req, res) => {
     let comune = req.query.search;
@@ -265,30 +248,47 @@ app.get("/meteoCitCercata", (req, res) => {
     let user = req.cookies.login;
 
     if (user !== undefined)
-        res.render("previsioni/citCercata", { auth: true, search: req.query.search ,user: user });
+        res.render("previsioni/citCercata", { auth: true, search: req.query.search, user: user });
     else
         res.render("previsioni/citCercata", { auth: false, search: req.query.search });
 
 });
 
-// #endregion
+app.get("/previsioniRegionali", async (req, res) => {
+    let user = req.cookies.login;
+
+    if (user !== undefined)
+        res.render("previsioni/regionali", { auth: true, user: user, regioni: regioni });
+    else
+        res.render("previsioni/regionali", { auth: false, regioni: regioni });
+});
+
+app.get("/previsioniRegionali/regione", async (req, res) => {
+    let scelta = req.query.scelta;
+    let province = await axios("https://comuni-ita.herokuapp.com/api/province/" + scelta + "?onlyname=true");
+    province = await province.data;
+
+    res.json({prov: province});
+});
 
 // #endregion
 
-const server = app.listen(listenPort, () => {
+const server = app.listen(listenPort, async () => {
     console.log(`Applicazione in ascolto su porta ${listenPort}`);
 
     let readableStream = fs.createReadStream("comuni.txt");
 
+    regioni = await axios("https://comuni-ita.herokuapp.com/api/regioni");
+    regioni = await regioni.data;
+
+    regioni = regioni.map(element => {
+        return element.toLowerCase();
+    });
+
     readableStream.on('error', async (error) => {
         let file;
         readableStream.close();
-        regioni = await axios("https://comuni-ita.herokuapp.com/api/regioni");
-        regioni = await regioni.data;
 
-        regioni = regioni.map(element => {
-            return element.toLowerCase();
-        });
 
         for (let i = 0; i < regioni.length; i++) {
             let resp = await axios("https://comuni-ita.herokuapp.com/api/comuni/" + regioni[i] + "?onlyname=true");

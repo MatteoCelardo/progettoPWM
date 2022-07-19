@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+    <%- include("../partials/head")%>
+</head>
+
+<body class="bootstrap">
+
+    <nav id="topNavBar" class="navbar navbar-expand-lg navbar bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Meteo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" href="/previsioniRegionali">Previsioni
+                            Regionali</a>
+                    </li>
+                    <% if(!auth){%>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Autenticazione
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/login">Login</a></li>
+                                <li><a class="dropdown-item" href="/registrazione">Registrazione</a></li>
+                            </ul>
+                        </li>
+                        <%} else{%>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <%= user%>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="/areaPersonale">Area Personale</a></li>
+                                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                                </ul>
+                            </li>
+                            <%}%>
+                                <l1>
+                                    <input type="checkbox" class="btn-check" id="darkModeToggle" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="darkModeToggle">dark mode</label>
+                                </l1>
+                </ul>
+                <div id="ricerca" class="d-flex">
+                    <div id="ricercaDropdown" class="rounded shadow-5">
+                    </div>
+                    <form id="formRicerca" class="d-none d-md-flex input-group w-auto my-auto">
+                        <input id="inputRicerca" class="form-control me-2" type="search"
+                            placeholder="Inserisci una città..." aria-label="Search" autocomplete="off">
+                        <button class="btn btn-outline-success" type="submit">Cerca</button>
+                    </form>
+
+                </div>
+
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-2">
+        <%for(let i=0; i <=(regioni.length/2); i++){%>
+            <div class="row row-cols-md-3 row-cols-sm-2 text-center">
+                <% let k=0 + (2*i); while( k < 2 + (2*i) && k < (regioni.length)){ %>
+                    <button type="button" class="botReg btn btn-primary mr-1 mb-1">
+                        <%= regioni[k]%>
+                    </button>
+                    <%k++;}%>
+            </div>
+            <%}%>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div id="albumPrevisioni" class="album py-3">
+
+
+        <div id="indicazioni" class="container card shadow-sm">
+            <div class="card-body bg-dark">
+                <p class="card-title text-light h4">clicca sul bottone di una regione per
+                    ottenere il meteo in tempo reale di tutte le sue province</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../js/meteo.js"></script>
+    <script src="../js/regionali.js"></script>
+    <%- include("../partials/scriptFondoPagina")%>
+
+
+</body>
+
+</html>

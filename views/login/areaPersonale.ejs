@@ -20,15 +20,8 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Previsioni
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/previsioniRegionali">Regionali</a></li>
-                            <li><a class="dropdown-item" href="/previsioniNazionali">Nazionali</a></li>
-                        </ul>
+                    <li>
+                        <a class="nav-link active" aria-current="page" href="/previsioniRegionali">Previsioni Regionali</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -67,7 +60,7 @@
                 <p class="lead">nome utente: </p>
             </div>
             <div class="col rounded bg-secondary mr-2">
-                <p id="pUser" >
+                <p id="pUser">
                     <%= user%>
                 </p>
             </div>
@@ -82,7 +75,7 @@
                 </p>
             </div>
         </div>
-        <%if(pref !== undefined) {%>
+        <%if(pref !==undefined) {%>
             <div id="divPref" class="container text-center">
                 <p class="h3">città preferite:</p>
                 <%for(let el in pref){%>
