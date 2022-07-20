@@ -4,7 +4,7 @@
 
 \subsection{Destinatari}
 
-L'applicazione è progettata per andare incontro a qualunque tipo di utente, dal più al meno esperto, grazie ad 
+L'applicazione è progettata per andare in contro a qualunque tipo di utente, dal più al meno esperto, grazie ad 
 un'interfaccia semplice ed intuitiva, la quale permette di trovare facilmente le informazioni relative al meteo in tempo reale 
 della città a cui si è interessati tramite la barra di ricerca o tramite le città impostate tra i propri preferiti, previa 
 registrazione e introduzione delle stesse nell'apposito spazio all'interno dell'area personale.
@@ -23,7 +23,7 @@ telefono grazie alla responsività degli elementi presenti nelle pagine.
 Gli utenti che si recano sulla piattaforma web saranno principalmente persone che hanno la necessità di sapere le condizioni 
 meteo di una città di loro interesse, motivo per cui i contenuti sono organizzati in modo tale da fornire informazioni su 
 richiesta esplicita dell'utente tramite una barra di ricerca oppure tramite gli elementi salvati nell'area personali una volta 
-effettuato il login
+effettuato il login.
 
 
 \subsection{Modello di valore}
@@ -33,7 +33,7 @@ L'applicazione si contraddistingue per essere intuitiva e veloce da usare, eleme
 \vspace{5mm}
 
 Grazie alla disponibilità in tempo reale di informazioni relative al tempo, quest'applicazione potrebbe essere integrata con 
-un'API in grado di fornire informazio a sistemi automatici in grado usati per svolgere operazioni in base al tempo atmosferico, 
+un'API in grado di fornire informazio a sistemi automatici usati per svolgere operazioni in base al tempo atmosferico, 
 risparmiando così ingenti somme di denaro in sensori e cablaggi.\\
 Benché attualmente non presenti, sarebbe facile inserire banner pubblicitari o sponsor di sorta grazie alla struttura modulare 
 del progetto.\\
@@ -43,9 +43,9 @@ una stima esatta di valore economico.
 
 \subsection{flusso di dati}
 
-Il flusso dei dati all'interno dell'applicazione é unicamente in formato JSON: lo scambio di dati tra client e server o tra 
-client e API di siti esterni é infatti interamente gestito attraverso l'inoltro di oggetti e stringhe JSON.\\
-Grazie ad una struttura REST, le comunicazioni saranno unicamente aperte dal client nel momento in cui necessiterà di una risorsa 
+Il flusso dei dati all'interno dell'applicazione é unicamente in formato JSON: lo scambio di dati tra client e server, tra 
+client e API o tra server e API é infatti interamente gestito attraverso l'inoltro di oggetti e stringhe JSON.\\
+Grazie ad una struttura RESTful, le comunicazioni saranno unicamente aperte dal client nel momento in cui necessiterà di una risorsa 
 (come il meteo relativo ad una città oppure un'altra pagina del sito), il quale richiederà ciò di cui necessita tramite 
 oggetti JSON inviati al server, ricevendone altri in risposta che permetteranno di agiornare un frammento della pagina o di effettuare 
 il reindirizzamento.
@@ -53,7 +53,7 @@ il reindirizzamento.
 \vspace{5mm}
 
 I contenuti salvati sono interamente archiviati lato server tramite l'uso di un database MongoDB ad eccezione della preferenza 
-espressa dall'utente per vare la pagina in dark mode oppure in light mode, i quali sono salvati localmente attraverso 
+espressa dall'utente per vare la pagina in dark mode oppure in light mode, la quale è salvata localmente attraverso 
 localStorage.
 
 \vspace{5mm}
@@ -70,11 +70,11 @@ adottarne di colsed source a pagamento con pochi e semplici aggiustamenti grazie
 \subsection{Aspetti tecnologici}
 
 La trasmissione di dati può essere effettuata in chiaro ad eccezione della password usata per accedere alla propria area 
-personale, la quale viene trasmessa sotto forma di SHA256 per evitare che sia leggibile.
+personale, la quale viene inviata sotto forma di SHA256 per evitare che sia leggibile.
 
 \vspace{5mm}
 
-Il database prevede la creazione di una singola collezione contenente:
+Il database prevede la creazione di una singola collezione in cui ogni documento contiene:
 \begin{itemize}
     \item \emph{\_id}: id univoco assegnato dal database in automatico;
     \item \emph{user}: username;
@@ -97,8 +97,9 @@ Tecnologie utilizzate:
     \item \emph{JSON}: formato usato per la trasmissione dei dati;
     \item \emph{localStorage}: usato per il salvataggio della preferenza utente per la visualizzazione della pagina (dark o light mode)
     \item \emph{MongoDB}: database utilizzato per salvare le informazioni relative agli utenti registrati sull'app;
-    \item \emph{API}: nel progetto sono state utilizzate 2 API:
+    \item \emph{API}: nel progetto sono state utilizzate 3 API:
     \begin{itemize}
+        \item \emph{openWeather}: API usata per ottenere le condizioni meteo in tempo reale;
         \item \emph{pexels}: API utilizzata per reperire le immagini mostrate nelle pagine;
         \item \emph{comuni ITA}: API usata per ottenere i nomi di regioni, province e comuni italiani.
     \end{itemize}

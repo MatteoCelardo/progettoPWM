@@ -1,0 +1,56 @@
+\chapter{Codice}
+
+\section{HTML 5}
+
+Il codice di tutte le pagine dell'applicazione è strutturato in modo da avere: 
+\begin{itemize}
+    \item lo stesso contenuto nel tag head (importato con un partial file);
+    \item una navbar contenente:
+    \begin{enumerate}
+        \item il nome del sito (Meteo);
+        \item un link alla Home in modo da poterci sempre tornare in qualunque momento;
+        \item un link alla pagina per il meteo in tempo reale delle province di ciascuna regione;
+        \item un menù a tendina per autenticarsi/registrarsi oppure per accedere all'area personale/effettuare 
+        il logout nel caso in cui si sia già autenticati;
+        \item bottone per fare il toggle tra light e dark mode;
+        \item barra di ricerca per ottenere il meteo in tempo reale di una città.
+    \end{enumerate}
+    I punti 3 e 4 non saranno presenti nella navbar delle pagine dedicate a login e registrazione. 
+\end{itemize}
+
+\vspace{5mm}
+
+Ogin pagina avrà poi un contenuto personalizzato in base al suo scopo.
+
+\section{CSS3}
+
+Nel progetto non sono stati integrati file \emph{.css} personalizzati in quanto tali funzioni sono state assolte tramite le classi 
+di bootstrap.
+
+\section{API}
+
+Nel progetto sono state integrate 3 API:
+\begin{itemize}
+    \item \emph{openWeather}: API usata per ottenere le condizioni meteo in tempo reale;
+    \item \emph{pexels}: API in grado di fornire immagini a partire da una query contenente un filtro che descriva il soggetto mostrato;
+    \item \emph{comuni ITA}: API in grado di fornire l'elenco dei comuni presenti in italia, nonché delle regioni e delle province di ogni regione.
+\end{itemize}
+
+\section{Node.js}
+
+Il server Node.js, implementato secondo paradigma \emph{RESTful}, mette in pratica tutte le funzionalità descritte nei capitoli precedenti. Viene implementato 
+grazie all'uso del framework \emph{Express} e di \emph{MongoDB} per memorizzare i dati degli utenti registrati.\\
+La comunicazione avviene tramite l'uso di HTTP e le chiamate asincrone; le chiamate effettuate dal server al database sono anch'esse tutte asincrone.
+
+\vspace{5mm}
+
+Per consultare il file server.js contenente il server in toto e il relatvo codice, 
+riferirsi alla repository github \url{https://github.com/MatteoCelardo/progettoPWM} seguendo il percorso \emph{assets/node}.
+
+
+\section{librerie esterne e JavaScript}
+
+Per consultare tutti i file JavaScript e il relatvo codice, riferirsi alla repository github \url{https://github.com/MatteoCelardo/progettoPWM} 
+nel percorso \emph{assets/js}.
+
+L'unica libreria esterna integrata è utilizzata per il calcolo dello SHA256 di una stringa è reperibile al link \url{https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js}.

@@ -21,3 +21,11 @@
 \contentsline {subsection}{\numberline {3.2.1}Descrizione delle risorse}{12}{subsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.1.1}Database}{12}{subsubsection.3.2.1.1}%
 \contentsline {subsubsection}{\numberline {3.2.1.2}Autenticazione}{12}{subsubsection.3.2.1.2}%
+\contentsline {chapter}{\numberline {4}Codice}{13}{chapter.4}%
+\contentsline {section}{\numberline {4.1}HTML 5}{13}{section.4.1}%
+\contentsline {section}{\numberline {4.2}CSS3}{13}{section.4.2}%
+\contentsline {section}{\numberline {4.3}API}{13}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Node.js}{14}{section.4.4}%
+\contentsline {section}{\numberline {4.5}librerie esterne e JavaScript}{14}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Possibili sviluppi e conclusioni}{15}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Bibliografia}{16}{chapter.6}%
