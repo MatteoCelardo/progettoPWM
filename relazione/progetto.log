@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.4.30)  20 JUL 2022 13:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.4.30)  20 JUL 2022 16:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/home/matteo/Documents/università/appunti/2 semestre/pwm/progettoPWM/relazione/pwm.tex"
-(/home/matteo/Documents/università/appunti/2 semestre/pwm/progettoPWM/relazione/pwm.tex
+**"/home/matteo/Documents/università/appunti/2 semestre/pwm/progettoPWM/relazione/progetto.tex"
+(/home/matteo/Documents/università/appunti/2 semestre/pwm/progettoPWM/relazione/progetto.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-04-10> (/usr/share/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2021/10/04 v1.4n Standard LaTeX document class
@@ -174,7 +174,17 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layouthoffset=\dimen150
 \Gm@layoutvoffset=\dimen151
 \Gm@dimlist=\toks19
-) (/usr/share/texmf-dist/tex/latex/listings/listings.sty
+) (/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+ (/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+)) (/usr/share/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count280
 \lst@gtempboxa=\box50
 \lst@token=\toks20
@@ -202,9 +212,6 @@ Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 227.
- (/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
-)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
 Package xcolor Info: Model `RGB' extended on input line 1368.
@@ -215,34 +222,34 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 23.
+Package hyperref Info: Option `colorlinks' set `true' on input line 25.
  (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-04-14 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count288
 \l__pdf_internal_box=\box52
-) (./pwm.aux (./capitoli/introduzione.aux) (./capitoli/interfacce.aux) (./capitoli/architettura.aux) (./capitoli/codice.aux) (./capitoli/conclusioni.aux) (./capitoli/bibliografia.aux) (./capitoli/documRif.aux))
-\openout1 = `pwm.aux'.
+) (./progetto.aux (./capitoli/introduzione.aux) (./capitoli/interfacce.aux) (./capitoli/architettura.aux) (./capitoli/codice.aux) (./capitoli/conclusioni.aux) (./capitoli/bibliografia.aux) (./capitoli/documRif.aux))
+\openout1 = `progetto.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Info: Redefining \it@ocap on input line 61.
-LaTeX Info: Redefining \it@ccap on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Info: Redefining \it@ocap on input line 63.
+LaTeX Info: Redefining \it@ccap on input line 63.
 
 
 File italian.ldf warning: 
@@ -250,15 +257,15 @@ italian.ldf    With OT1 encoding guillemets are poorly faked
 italian.ldf    Use T1 encoding
 italian.ldf    or specify a font with command \CaporaliFrom
 italian.ldf    See the documentation concerning the babel-italian typesetting 
-italian.ldf    on input line 61.
+italian.ldf    on input line 63.
 
-Package hyperref Info: Link coloring ON on input line 61.
-LaTeX Info: Redefining \ref on input line 61.
-LaTeX Info: Redefining \pageref on input line 61.
-LaTeX Info: Redefining \nameref on input line 61.
-(./pwm.out) (./pwm.out)
+Package hyperref Info: Link coloring ON on input line 63.
+LaTeX Info: Redefining \ref on input line 63.
+LaTeX Info: Redefining \pageref on input line 63.
+LaTeX Info: Redefining \nameref on input line 63.
+(./progetto.out) (./progetto.out)
 \@outlinefile=\write3
-\openout3 = `pwm.out'.
+\openout3 = `progetto.out'.
 
 
 *geometry* driver: auto-detecting
@@ -295,43 +302,48 @@ LaTeX Info: Redefining \nameref on input line 61.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count289
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count290
+\scratchcounter=\count289
 \scratchdimen=\dimen156
 \scratchbox=\box53
-\nofMPsegments=\count291
-\nofMParguments=\count292
+\nofMPsegments=\count290
+\nofMParguments=\count291
 \everyMPshowfont=\toks21
-\MPscratchCnt=\count293
+\MPscratchCnt=\count292
 \MPscratchDim=\dimen157
-\MPnumerator=\count294
-\makeMPintoPDFobject=\count295
+\MPnumerator=\count293
+\makeMPintoPDFobject=\count294
 \everyMPtoPDFconversion=\toks22
-)
+) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+\c@lstlisting=\count295
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 64.
+(Font)              <12> on input line 66.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 64.
+(Font)              <8> on input line 66.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 64.
+(Font)              <6> on input line 66.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./pwm.toc
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./progetto.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 4.
 )
 \tf@toc=\write4
-\openout4 = `pwm.toc'.
+\openout4 = `progetto.toc'.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.68 \include{capitoli/introduzione.tex}
+l.70 \include{capitoli/introduzione.tex}
                                          [1
 
 ]
@@ -342,10 +354,86 @@ Capitolo 1.
 [2
 
 
-]) [3]
+]) [3] [4]
 \openout2 = `capitoli/interfacce.aux'.
 
- (./capitoli/interfacce.tex)
+ (./capitoli/interfacce.tex
+Capitolo 2.
+<img/indexSopra.png, id=107, 995.21812pt x 341.77687pt>
+File: img/indexSopra.png Graphic file (type png)
+<use img/indexSopra.png>
+Package pdftex.def Info: img/indexSopra.png  used on input line 17.
+(pdftex.def)             Requested size: 995.2157pt x 341.77603pt.
+[5
+
+
+
+
+ <./img/indexSopra.png (PNG copy)>]
+<img/indexSotto.png, id=113, 976.39781pt x 324.46219pt>
+File: img/indexSotto.png Graphic file (type png)
+<use img/indexSotto.png>
+Package pdftex.def Info: img/indexSotto.png  used on input line 34.
+(pdftex.def)             Requested size: 976.39543pt x 324.46138pt.
+<img/indexLogged.png, id=114, 956.82469pt x 422.32782pt>
+File: img/indexLogged.png Graphic file (type png)
+<use img/indexLogged.png>
+Package pdftex.def Info: img/indexLogged.png  used on input line 46.
+(pdftex.def)             Requested size: 956.82236pt x 422.32678pt.
+ [6 <./img/indexSotto.png (PNG copy)> <./img/indexLogged.png (PNG copy)>]
+<img/previsioniRegionali.png, id=122, 989.94844pt x 449.42906pt>
+File: img/previsioniRegionali.png Graphic file (type png)
+<use img/previsioniRegionali.png>
+Package pdftex.def Info: img/previsioniRegionali.png  used on input line 57.
+(pdftex.def)             Requested size: 989.94603pt x 449.42795pt.
+<img/previsioniRegionaliMolise.png, id=123, 970.3753pt x 344.78813pt>
+File: img/previsioniRegionaliMolise.png Graphic file (type png)
+<use img/previsioniRegionaliMolise.png>
+Package pdftex.def Info: img/previsioniRegionaliMolise.png  used on input line 68.
+(pdftex.def)             Requested size: 970.37294pt x 344.78728pt.
+ [7 <./img/previsioniRegionali.png (PNG copy)> <./img/previsioniRegionaliMolise.png (PNG copy)>]
+<img/citCercata.png, id=130, 992.95969pt x 243.15843pt>
+File: img/citCercata.png Graphic file (type png)
+<use img/citCercata.png>
+Package pdftex.def Info: img/citCercata.png  used on input line 77.
+(pdftex.def)             Requested size: 992.95726pt x 243.15784pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--83
+
+ []
+
+<img/login.png, id=131, 983.17313pt x 335.00156pt>
+File: img/login.png Graphic file (type png)
+<use img/login.png>
+Package pdftex.def Info: img/login.png  used on input line 96.
+(pdftex.def)             Requested size: 983.17073pt x 335.00073pt.
+[8 <./img/citCercata.png (PNG copy)> <./img/login.png (PNG copy)>]
+<img/registrazione.png, id=138, 993.7125pt x 351.56343pt>
+File: img/registrazione.png Graphic file (type png)
+<use img/registrazione.png>
+Package pdftex.def Info: img/registrazione.png  used on input line 110.
+(pdftex.def)             Requested size: 993.71007pt x 351.56256pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--117
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
+
+ []
+
+<img/areaPSopra.png, id=139, 974.13937pt x 350.81062pt>
+File: img/areaPSopra.png Graphic file (type png)
+<use img/areaPSopra.png>
+Package pdftex.def Info: img/areaPSopra.png  used on input line 130.
+(pdftex.def)             Requested size: 974.137pt x 350.80975pt.
+<img/areaPSotto.png, id=140, 980.91469pt x 459.96844pt>
+File: img/areaPSotto.png Graphic file (type png)
+<use img/areaPSotto.png>
+Package pdftex.def Info: img/areaPSotto.png  used on input line 143.
+(pdftex.def)             Requested size: 980.9123pt x 459.96732pt.
+[9 <./img/registrazione.png (PNG copy)> <./img/areaPSopra.png (PNG copy)>]) [10 <./img/areaPSotto.png (PNG copy)>]
 \openout2 = `capitoli/architettura.aux'.
 
  (./capitoli/architettura.tex)
@@ -362,23 +450,23 @@ Capitolo 1.
 
 
 No file capitoli/documRif.tex.
-(./pwm.aux (./capitoli/introduzione.aux) (./capitoli/interfacce.aux) (./capitoli/architettura.aux) (./capitoli/codice.aux) (./capitoli/conclusioni.aux) (./capitoli/bibliografia.aux) (./capitoli/documRif.aux))
-Package rerunfilecheck Info: File `pwm.out' has not changed.
-(rerunfilecheck)             Checksum: 0C338DD95D878971FCD05904D0CA3816;832.
+(./progetto.aux (./capitoli/introduzione.aux) (./capitoli/interfacce.aux) (./capitoli/architettura.aux) (./capitoli/codice.aux) (./capitoli/conclusioni.aux) (./capitoli/bibliografia.aux) (./capitoli/documRif.aux))
+Package rerunfilecheck Info: File `progetto.out' has not changed.
+(rerunfilecheck)             Checksum: 458FCC8A2170AAB5FAEA351D49598EA1;1954.
  ) 
 Here is how much of TeX's memory you used:
- 11625 strings out of 478238
- 183062 string characters out of 5850456
- 505938 words of memory out of 5000000
- 29706 multiletter control sequences out of 15000+600000
+ 12013 strings out of 478238
+ 190127 string characters out of 5850456
+ 511894 words of memory out of 5000000
+ 30040 multiletter control sequences out of 15000+600000
  475407 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,6n,63p,293b,351s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,7n,63p,340b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on pwm.pdf (4 pages, 98646 bytes).
+Output written on progetto.pdf (11 pages, 1494536 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
- 73 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 500000)
- 49 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 197 PDF objects out of 1000 (max. 8388607)
+ 158 compressed objects within 2 object streams
+ 37 named destinations out of 1000 (max. 500000)
+ 171 words of extra memory for PDF output out of 10000 (max. 10000000)
 

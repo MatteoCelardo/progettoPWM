@@ -81,7 +81,7 @@ app.get("/verificaCredenziali", (req, res) => {
             if (err) throw err;
             let dbo = db.db(DBName);
             let query = { email: mail };
-            console.log(query);
+
             dbo.collection(collectionName).findOne(query, (err, result) => {
                 if (err)
                     res.redirect("/login?auth=fail");
