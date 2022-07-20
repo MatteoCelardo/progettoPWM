@@ -11,11 +11,11 @@ function init() {
 function toggleDarkMode() {
     if (document.body.classList.contains("bootstrap")) {
         document.body.className = "bootstrap-dark";
-        document.getElementById("topNavBar").className = "navbar navbar-expand-lg navbar bg-dark";
+        document.getElementById("topNavBar").className = "navbar navbar-expand-lg navbar-expand-sm navbar-expand-md bg-dark";
     }
     else {
         document.body.className = "bootstrap";
-        document.getElementById("topNavBar").className = "navbar navbar-expand-lg navbar bg-light";
+        document.getElementById("topNavBar").className = "navbar navbar-expand-lg navbar-expand-sm navbar-expand-md bg-light";
     }
 
     savePref();
@@ -27,7 +27,7 @@ function checkPref() {
 
     if (pref !== 'undefined' && pref.dark && (date.getTime() - pref.timestamp) < (1000 * 60 * 60 * 24 * 7)) {
         document.body.className = "bootstrap-dark";
-        document.getElementById("topNavBar").className = "navbar navbar-expand-lg navbar bg-dark";
+        document.getElementById("topNavBar").className = "navbar navbar-expand-lg navbar-expand-sm navbar-expand-md bg-dark";
     }
 
     savePref();
