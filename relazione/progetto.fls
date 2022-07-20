@@ -636,6 +636,11 @@ INPUT ./capitoli/architettura.tex
 INPUT capitoli/architettura.tex
 INPUT ./capitoli/architettura.tex
 INPUT capitoli/architettura.tex
+INPUT ./img/architettura.png
+INPUT ./img/architettura.png
+INPUT img/architettura.png
+INPUT ./img/architettura.png
+INPUT ./img/architettura.png
 INPUT ./capitoli/codice.tex
 OUTPUT capitoli/codice.aux
 INPUT ./capitoli/codice.tex

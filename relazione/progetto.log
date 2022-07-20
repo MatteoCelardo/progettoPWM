@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.4.30)  20 JUL 2022 16:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.4.30)  20 JUL 2022 18:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -354,12 +354,12 @@ Capitolo 1.
 [2
 
 
-]) [3] [4]
+] [3]) [4]
 \openout2 = `capitoli/interfacce.aux'.
 
  (./capitoli/interfacce.tex
 Capitolo 2.
-<img/indexSopra.png, id=107, 995.21812pt x 341.77687pt>
+<img/indexSopra.png, id=137, 995.21812pt x 341.77687pt>
 File: img/indexSopra.png Graphic file (type png)
 <use img/indexSopra.png>
 Package pdftex.def Info: img/indexSopra.png  used on input line 17.
@@ -370,29 +370,29 @@ Package pdftex.def Info: img/indexSopra.png  used on input line 17.
 
 
  <./img/indexSopra.png (PNG copy)>]
-<img/indexSotto.png, id=113, 976.39781pt x 324.46219pt>
+<img/indexSotto.png, id=143, 976.39781pt x 324.46219pt>
 File: img/indexSotto.png Graphic file (type png)
 <use img/indexSotto.png>
 Package pdftex.def Info: img/indexSotto.png  used on input line 34.
 (pdftex.def)             Requested size: 976.39543pt x 324.46138pt.
-<img/indexLogged.png, id=114, 956.82469pt x 422.32782pt>
+<img/indexLogged.png, id=144, 956.82469pt x 422.32782pt>
 File: img/indexLogged.png Graphic file (type png)
 <use img/indexLogged.png>
 Package pdftex.def Info: img/indexLogged.png  used on input line 46.
 (pdftex.def)             Requested size: 956.82236pt x 422.32678pt.
  [6 <./img/indexSotto.png (PNG copy)> <./img/indexLogged.png (PNG copy)>]
-<img/previsioniRegionali.png, id=122, 989.94844pt x 449.42906pt>
+<img/previsioniRegionali.png, id=152, 989.94844pt x 449.42906pt>
 File: img/previsioniRegionali.png Graphic file (type png)
 <use img/previsioniRegionali.png>
 Package pdftex.def Info: img/previsioniRegionali.png  used on input line 57.
 (pdftex.def)             Requested size: 989.94603pt x 449.42795pt.
-<img/previsioniRegionaliMolise.png, id=123, 970.3753pt x 344.78813pt>
+<img/previsioniRegionaliMolise.png, id=153, 970.3753pt x 344.78813pt>
 File: img/previsioniRegionaliMolise.png Graphic file (type png)
 <use img/previsioniRegionaliMolise.png>
 Package pdftex.def Info: img/previsioniRegionaliMolise.png  used on input line 68.
 (pdftex.def)             Requested size: 970.37294pt x 344.78728pt.
  [7 <./img/previsioniRegionali.png (PNG copy)> <./img/previsioniRegionaliMolise.png (PNG copy)>]
-<img/citCercata.png, id=130, 992.95969pt x 243.15843pt>
+<img/citCercata.png, id=161, 992.95969pt x 243.15843pt>
 File: img/citCercata.png Graphic file (type png)
 <use img/citCercata.png>
 Package pdftex.def Info: img/citCercata.png  used on input line 77.
@@ -402,13 +402,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 81--83
 
  []
 
-<img/login.png, id=131, 983.17313pt x 335.00156pt>
+<img/login.png, id=162, 983.17313pt x 335.00156pt>
 File: img/login.png Graphic file (type png)
 <use img/login.png>
 Package pdftex.def Info: img/login.png  used on input line 96.
 (pdftex.def)             Requested size: 983.17073pt x 335.00073pt.
 [8 <./img/citCercata.png (PNG copy)> <./img/login.png (PNG copy)>]
-<img/registrazione.png, id=138, 993.7125pt x 351.56343pt>
+<img/registrazione.png, id=169, 993.7125pt x 351.56343pt>
 File: img/registrazione.png Graphic file (type png)
 <use img/registrazione.png>
 Package pdftex.def Info: img/registrazione.png  used on input line 110.
@@ -423,12 +423,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 120--121
 
  []
 
-<img/areaPSopra.png, id=139, 974.13937pt x 350.81062pt>
+<img/areaPSopra.png, id=170, 974.13937pt x 350.81062pt>
 File: img/areaPSopra.png Graphic file (type png)
 <use img/areaPSopra.png>
 Package pdftex.def Info: img/areaPSopra.png  used on input line 130.
 (pdftex.def)             Requested size: 974.137pt x 350.80975pt.
-<img/areaPSotto.png, id=140, 980.91469pt x 459.96844pt>
+<img/areaPSotto.png, id=171, 980.91469pt x 459.96844pt>
 File: img/areaPSotto.png Graphic file (type png)
 <use img/areaPSotto.png>
 Package pdftex.def Info: img/areaPSotto.png  used on input line 143.
@@ -436,7 +436,19 @@ Package pdftex.def Info: img/areaPSotto.png  used on input line 143.
 [9 <./img/registrazione.png (PNG copy)> <./img/areaPSopra.png (PNG copy)>]) [10 <./img/areaPSotto.png (PNG copy)>]
 \openout2 = `capitoli/architettura.aux'.
 
- (./capitoli/architettura.tex)
+ (./capitoli/architettura.tex
+Capitolo 3.
+<img/architettura.png, id=183, 867.24pt x 362.7954pt>
+File: img/architettura.png Graphic file (type png)
+<use img/architettura.png>
+Package pdftex.def Info: img/architettura.png  used on input line 7.
+(pdftex.def)             Requested size: 867.2379pt x 362.79451pt.
+[11
+
+
+
+
+ <./img/architettura.png>]) [12]
 \openout2 = `capitoli/codice.aux'.
 
  (./capitoli/codice.tex)
@@ -452,21 +464,21 @@ Package pdftex.def Info: img/areaPSotto.png  used on input line 143.
 No file capitoli/documRif.tex.
 (./progetto.aux (./capitoli/introduzione.aux) (./capitoli/interfacce.aux) (./capitoli/architettura.aux) (./capitoli/codice.aux) (./capitoli/conclusioni.aux) (./capitoli/bibliografia.aux) (./capitoli/documRif.aux))
 Package rerunfilecheck Info: File `progetto.out' has not changed.
-(rerunfilecheck)             Checksum: 458FCC8A2170AAB5FAEA351D49598EA1;1954.
+(rerunfilecheck)             Checksum: 7C2F4B571C0123ACE2425E009F49EB7F;2812.
  ) 
 Here is how much of TeX's memory you used:
- 12013 strings out of 478238
- 190127 string characters out of 5850456
- 511894 words of memory out of 5000000
- 30040 multiletter control sequences out of 15000+600000
+ 12034 strings out of 478238
+ 190496 string characters out of 5850456
+ 511898 words of memory out of 5000000
+ 30052 multiletter control sequences out of 15000+600000
  475407 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,7n,63p,340b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,7n,63p,340b,462s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on progetto.pdf (11 pages, 1494536 bytes).
+Output written on progetto.pdf (13 pages, 1534371 bytes).
 PDF statistics:
- 197 PDF objects out of 1000 (max. 8388607)
- 158 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 171 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 239 PDF objects out of 1000 (max. 8388607)
+ 197 compressed objects within 2 object streams
+ 46 named destinations out of 1000 (max. 500000)
+ 224 words of extra memory for PDF output out of 10000 (max. 10000000)
 
