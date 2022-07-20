@@ -1,0 +1,77 @@
+\documentclass{report}
+
+%pacchetti
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+%permette ai riferimenti di essere cliccabili
+\usepackage{hyperref}
+%permette di fare riferimento a un elemento tramite il suo nome
+\usepackage{nameref}
+%impostazione dei margini del documento
+\usepackage[margin=1in]{geometry}
+
+%inserimento di pezzi di codice
+\usepackage{listings}
+%colori per il codice
+\usepackage{xcolor}
+
+%impostazioni dei collegamenti ipertestuali
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,
+}
+
+\urlstyle{same}
+
+%impostazione della profondità a cui mostrare le parti del documento nell'indice
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%setup colori e visualizzazione codice
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{lgray}{rgb}{0.95,0.95,0.95}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{lgray},   
+    commentstyle=\color{cyan},
+    keywordstyle=\color{blue},
+    numberstyle=\color{codegray},
+    stringstyle=\color{orange},
+    breakatwhitespace=false,         
+    breaklines=true,                                   
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+%disabilitazione dell'indentazione a inizio paragrafo
+\setlength{\parindent}{0pt}
+
+\title{Previsioni Meteo}
+\author{Matteo Celardo 984457}
+\date{PWM - secondo semestre A.A. 2021/2022}
+
+\begin{document}
+
+\maketitle
+
+% Indice
+\tableofcontents
+
+\include{capitoli/introduzione.tex}
+\include{capitoli/interfacce.tex}
+\include{capitoli/architettura.tex}
+\include{capitoli/codice.tex}
+\include{capitoli/conclusioni.tex}
+\include{capitoli/bibliografia.tex}
+
+\include{capitoli/documRif.tex}
+
+\end{document}
